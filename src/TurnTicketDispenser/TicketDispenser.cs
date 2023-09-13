@@ -1,13 +1,33 @@
+using TDDMicroExercises.TurnTicketDispenser.Interfaces;
+
 namespace TDDMicroExercises.TurnTicketDispenser
 {
-    public class TicketDispenser
+    /// <inheritdoc/>
+    public class TicketDispenser : ITicketDispenser
     {
-        public TurnTicket GetTurnTicket()
+        #region Private Members
+        private readonly ITurnNumberSequence _turnNumberSequence;
+        #endregion
+
+        #region Constructor
+        public TicketDispenser() : this(TurnNumberSequence.Instance)
         {
-            int newTurnNumber = TurnNumberSequence.GetNextTurnNumber();
-            var newTurnTicket = new TurnTicket(newTurnNumber);
+        }
+        public TicketDispenser(ITurnNumberSequence turnNumberSequence)
+        {
+            this._turnNumberSequence = turnNumberSequence;
+        }
+        #endregion
+
+        #region Interfaces.ITicketDispenser Methods
+        /// <inheritdoc/>
+        public ITurnTicket GetTurnTicket()
+        {
+            int newTurnNumber = this._turnNumberSequence.GetNextTurnNumber();
+            ITurnTicket newTurnTicket = new TurnTicket(newTurnNumber);
 
             return newTurnTicket;
         }
+        #endregion
     }
 }

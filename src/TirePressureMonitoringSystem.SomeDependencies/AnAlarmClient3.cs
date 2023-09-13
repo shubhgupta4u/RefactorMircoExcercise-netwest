@@ -1,5 +1,4 @@
-﻿using System;
-namespace TDDMicroExercises.TirePressureMonitoringSystem.SomeDependencies
+﻿namespace TDDMicroExercises.TirePressureMonitoringSystem.SomeDependencies
 {
     public class AnAlarmClient3
     {
@@ -13,14 +12,14 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem.SomeDependencies
             _anAlarm = new Alarm();
         }
 
-        public void DoSomething() 
+        public void DoSomething()
         {
-			_anAlarm.Check();          
+            _anAlarm.Check();
         }
 
-		public void DoSomethingElse()
-		{
-			bool isAlarmOn = _anAlarm.AlarmOn;
-		}
+        public void DoSomethingElse()
+        {
+            bool isAlarmOn = _anAlarm.AlarmOn;
+        }
     }
 }
