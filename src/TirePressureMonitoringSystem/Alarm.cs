@@ -14,9 +14,6 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
         #endregion
 
         #region Constructors
-        public Alarm() : this(new Sensor())
-        {
-        }
         public Alarm(ISensor sensor)
         {
             this._sensor = sensor;

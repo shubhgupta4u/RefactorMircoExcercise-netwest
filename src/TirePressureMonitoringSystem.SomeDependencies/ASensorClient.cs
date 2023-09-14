@@ -1,4 +1,6 @@
-﻿namespace TDDMicroExercises.TirePressureMonitoringSystem.SomeDependencies
+﻿using TDDMicroExercises.TirePressureMonitoringSystem.Interfaces;
+
+namespace TDDMicroExercises.TirePressureMonitoringSystem.SomeDependencies
 {
     public class ASensorClient
     {
@@ -7,7 +9,7 @@
 
         public ASensorClient()
         {
-            Sensor sensor = new Sensor();
+            ISensor sensor = DependencyResolver.Instance.Resolve<ISensor>();
 
             double value = sensor.PopNextPressurePsiValue();
             value = sensor.PopNextPressurePsiValue();

@@ -1,4 +1,6 @@
-﻿namespace TDDMicroExercises.TelemetrySystem.SomeDependencies
+﻿using TDDMicroExercises.TelemetrySystem.Interfaces;
+
+namespace TDDMicroExercises.TelemetrySystem.SomeDependencies
 {
     public class TelemetryDiagnosticControlsClient2
     {
@@ -7,7 +9,7 @@
 
         public TelemetryDiagnosticControlsClient2()
         {
-            var teleDiagnostic = new TelemetryDiagnosticControls();
+            var teleDiagnostic = DependencyResolver.Instance.Resolve<ITelemetryDiagnosticControls>();
 
             teleDiagnostic.CheckTransmission();
 

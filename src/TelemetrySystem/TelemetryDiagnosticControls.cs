@@ -17,9 +17,6 @@ namespace TDDMicroExercises.TelemetrySystem
         {
             this._telemetryClient = telemetryClient;
         }
-        public TelemetryDiagnosticControls() : this(new TelemetryClient())
-        {
-        }
         public string DiagnosticInfo
         {
             get { return this._diagnosticInfo; }

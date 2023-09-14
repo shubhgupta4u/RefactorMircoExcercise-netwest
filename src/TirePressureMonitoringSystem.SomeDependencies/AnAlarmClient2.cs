@@ -1,4 +1,6 @@
-﻿namespace TDDMicroExercises.TirePressureMonitoringSystem.SomeDependencies
+﻿using TDDMicroExercises.TirePressureMonitoringSystem.Interfaces;
+
+namespace TDDMicroExercises.TirePressureMonitoringSystem.SomeDependencies
 {
     public class AnAlarmClient2
     {
@@ -7,7 +9,7 @@
 
         private void DoSomething()
         {
-            Alarm anAlarm = new Alarm();
+            IAlarm anAlarm = DependencyResolver.Instance.Resolve<IAlarm>();
             anAlarm.Check();
             bool isAlarmOn = anAlarm.AlarmOn;
         }

@@ -1,4 +1,6 @@
-﻿namespace TDDMicroExercises.TurnTicketDispenser.SomeDependencies
+﻿using TDDMicroExercises.TurnTicketDispenser.Interfaces;
+
+namespace TDDMicroExercises.TurnTicketDispenser.SomeDependencies
 {
     public class TurnNumberSequenceClient
     {
@@ -8,9 +10,9 @@
         public TurnNumberSequenceClient()
         {
             int nextUniqueTicketNumber;
-            nextUniqueTicketNumber = TurnNumberSequence.Instance.GetNextTurnNumber();
-            nextUniqueTicketNumber = TurnNumberSequence.Instance.GetNextTurnNumber();
-            nextUniqueTicketNumber = TurnNumberSequence.Instance.GetNextTurnNumber();
+            nextUniqueTicketNumber = DependencyResolver.Instance.Resolve<ITurnNumberSequence>().GetNextTurnNumber();
+            nextUniqueTicketNumber = DependencyResolver.Instance.Resolve<ITurnNumberSequence>().GetNextTurnNumber();
+            nextUniqueTicketNumber = DependencyResolver.Instance.Resolve<ITurnNumberSequence>().GetNextTurnNumber();
         }
     }
 }

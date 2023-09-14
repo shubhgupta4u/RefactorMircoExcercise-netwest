@@ -1,4 +1,3 @@
-using System;
 using TDDMicroExercises.TurnTicketDispenser.Interfaces;
 
 namespace TDDMicroExercises.TurnTicketDispenser
@@ -6,24 +5,13 @@ namespace TDDMicroExercises.TurnTicketDispenser
     public sealed class TurnNumberSequence : ITurnNumberSequence
     {
         #region Private Members
-        private static readonly Lazy<TurnNumberSequence> lazy = new Lazy<TurnNumberSequence>(() => new TurnNumberSequence());
         private readonly object _padLock = new object();
         private int _turnNumber = 0;
         #endregion
 
         #region Constructor
-        private TurnNumberSequence()
+        public TurnNumberSequence()
         {
-        }
-        #endregion
-
-        #region Properties
-        public static TurnNumberSequence Instance
-        {
-            get
-            {
-                return lazy.Value;
-            }
         }
         #endregion
 

@@ -1,4 +1,6 @@
-﻿namespace TDDMicroExercises.TurnTicketDispenser.SomeDependencies
+﻿using TDDMicroExercises.TurnTicketDispenser.Interfaces;
+
+namespace TDDMicroExercises.TurnTicketDispenser.SomeDependencies
 {
     public class TicketDispenserClient
     {
@@ -7,9 +9,9 @@
 
         public TicketDispenserClient()
         {
-            new TicketDispenser().GetTurnTicket();
-            new TicketDispenser().GetTurnTicket();
-            new TicketDispenser().GetTurnTicket();
+            DependencyResolver.Instance.Resolve<ITicketDispenser>().GetTurnTicket();
+            DependencyResolver.Instance.Resolve<ITicketDispenser>().GetTurnTicket();
+            DependencyResolver.Instance.Resolve<ITicketDispenser>().GetTurnTicket();
         }
     }
 }

@@ -10,9 +10,6 @@ namespace TDDMicroExercises.TurnTicketDispenser
         #endregion
 
         #region Constructor
-        public TicketDispenser() : this(TurnNumberSequence.Instance)
-        {
-        }
         public TicketDispenser(ITurnNumberSequence turnNumberSequence)
         {
             this._turnNumberSequence = turnNumberSequence;

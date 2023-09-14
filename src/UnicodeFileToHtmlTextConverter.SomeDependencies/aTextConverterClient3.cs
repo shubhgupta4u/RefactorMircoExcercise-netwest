@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TDDMicroExercises.UnicodeFileToHtmlTextConverter.Interfaces;
+
 namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter.SomeDependencies
 {
     public class aTextConverterClient3
@@ -9,9 +10,9 @@ namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter.SomeDependencies
         public aTextConverterClient3()
         {
             object[] args = { "jetAnotherFilename.txt" };
-            dynamic x = Activator.CreateInstance(Type.GetType("TDDMicroExercises.UnicodeFileToHtmTextConverter.UnicodeFileToHtmTextConverter"), args);
+            dynamic x = DependencyResolver.Instance.Resolve<IUnicodeFileToHtmlTextConverter>();
 
-            string html = x.ConvertToHtml();
+            string html = x.ConvertToHtml(args[0]);
 
         }
     }

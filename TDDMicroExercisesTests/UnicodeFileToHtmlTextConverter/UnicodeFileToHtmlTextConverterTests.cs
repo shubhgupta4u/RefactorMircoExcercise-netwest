@@ -23,10 +23,10 @@ namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter.Tests
             {
                 { fileName, new MockFileData(fileText) }
             });
-            UnicodeFileToHtmlTextConverter textConverter = new UnicodeFileToHtmlTextConverter(mockFileSystem, fileName);
+            UnicodeFileToHtmlTextConverter textConverter = new UnicodeFileToHtmlTextConverter(mockFileSystem);
 
             // Act
-            string actualConvertedHtmlText = textConverter.ConvertToHtml();
+            string actualConvertedHtmlText = textConverter.ConvertToHtml(fileName);
 
             // Assert
             Assert.AreEqual<string>(actualConvertedHtmlText, expectedConvertedHtmlText);

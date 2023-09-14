@@ -1,4 +1,6 @@
-﻿namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter.SomeDependencies
+﻿using TDDMicroExercises.UnicodeFileToHtmlTextConverter.Interfaces;
+
+namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter.SomeDependencies
 {
     public class aTextConverterClient1
     {
@@ -8,8 +10,8 @@
         public aTextConverterClient1()
         {
             var filename = "aFilename.txt";
-            var textConverter = new UnicodeFileToHtmlTextConverter(filename);
-            var html = textConverter.ConvertToHtml();
+            var textConverter = DependencyResolver.Instance.Resolve<IUnicodeFileToHtmlTextConverter>();
+            var html = textConverter.ConvertToHtml(filename);
         }
     }
 }

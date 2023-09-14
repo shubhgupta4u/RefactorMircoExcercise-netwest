@@ -9,33 +9,23 @@ namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter
     public class UnicodeFileToHtmlTextConverter : IUnicodeFileToHtmlTextConverter
     {
         #region Private Members
-        private readonly string _fullFilenameWithPath;
         private IFileSystem _fileSystem;
         #endregion
         #region Constructors
         /// <summary>
         /// Return UnicodeFileToHtmlTextConverter Instance
         /// </summary>
-        /// <param name="file">IFileSystem Instance</param>
         /// <param name="fullFilenameWithPath">Full unicode file path that need to convert to HTML text</param>
-        public UnicodeFileToHtmlTextConverter(IFileSystem file, string fullFilenameWithPath)
+        public UnicodeFileToHtmlTextConverter(IFileSystem file)// : this(new FileSystem(), string.Empty)
         {
-            _fullFilenameWithPath = fullFilenameWithPath;
-            _fileSystem = file;
-        }
-        /// <summary>
-        /// Return UnicodeFileToHtmlTextConverter Instance
-        /// </summary>
-        /// <param name="fullFilenameWithPath">Full unicode file path that need to convert to HTML text</param>
-        public UnicodeFileToHtmlTextConverter(string fullFilenameWithPath) : this(new FileSystem(), fullFilenameWithPath)
-        {
+            this._fileSystem = file;
         }
         #endregion
         #region Public Methods 
         /// <inheritdoc/>
-        public string ConvertToHtml()
+        public string ConvertToHtml(string fullFilePath)
         {
-            using (TextReader unicodeFileStream = this._fileSystem.File.OpenText(_fullFilenameWithPath))
+            using (TextReader unicodeFileStream = this._fileSystem.File.OpenText(fullFilePath))
             {
                 StringBuilder html = new StringBuilder();
 

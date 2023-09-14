@@ -1,4 +1,6 @@
-﻿namespace TDDMicroExercises.TelemetrySystem.SomeDependencies
+﻿using TDDMicroExercises.TelemetrySystem.Interfaces;
+
+namespace TDDMicroExercises.TelemetrySystem.SomeDependencies
 {
     public class TelemetryClientClient
     {
@@ -7,7 +9,7 @@
 
         public TelemetryClientClient()
         {
-            var tc = new TelemetryClient();
+            var tc = DependencyResolver.Instance.Resolve<ITelemetryClient>();
             if (!tc.OnlineStatus)
                 tc.Connect("a connection string");
 
